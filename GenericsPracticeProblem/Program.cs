@@ -13,7 +13,7 @@
 
             Console.WriteLine("Welcome to GenericsPracticeProblem");
             Console.WriteLine("Please choose any one program from below options.");
-            Console.WriteLine("\n.1.IntegerFindMaxValue\n.2.FloatFindMaxValue\n.3.StringFindMaxValue\n.4.FindMaxValueUsingGenerics\n.5.ExtendMax");
+            Console.WriteLine("\n.1.IntegerFindMaxValue\n.2.FloatFindMaxValue\n.3.StringFindMaxValue\n.4.FindMaxValueUsingGenerics\n.5.ExtendMax and Generic method");
             Console.WriteLine(" ");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -49,10 +49,7 @@
 
                     FindMaxValueUsingGenerics<string> stringobj = new FindMaxValueUsingGenerics<string>(new string[] { "Hello", "Hi", "Sayo", "Nope", "Generics" });
                     stringobj.TestMaximum();
-
-                    break; 
-                case 6:
-                   
+                    break;     
                 default:
                     Console.WriteLine("Please choose number within given options.");
                     break;
