@@ -41,7 +41,6 @@
                     stringObj.TestMaximum();
                     break;
                    
-
                 default:
                     Console.WriteLine("Please choose number within given options.");
                     break;
