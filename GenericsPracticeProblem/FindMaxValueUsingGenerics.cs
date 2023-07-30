@@ -6,41 +6,45 @@ using System.Threading.Tasks;
 
 namespace GenericsPracticeProblem
 {
-    internal class FindMaxValueUsingGenerics<T> where T: IComparable// client code.
+    internal class FindMaxValueUsingGenerics<T> where T : IComparable
     {
-        public T first, second, third;
+        public T[] values;
 
-        public FindMaxValueUsingGenerics(T first, T second, T third)
+        public FindMaxValueUsingGenerics(params T[] values)
         {
-            this.first = first;
-            this.second = second;
-            this.third = third;
+            this.values = values;
         }
 
-        public static T FindMax(T first, T second, T third)
+        public static T FindMax(T[] values)
         {
-            //int result = first.CompareTo(second);//0 or 1 or -1
-            if (first.CompareTo(second) >= 0 && first.CompareTo(third) >= 0)
+            if (values.Length == 0)
             {
-                Console.WriteLine("{0} is greater ", first);
-                return first;
+                // Return a default value for type T when the array is empty
+                return default(T);
             }
 
-            else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
+            T maxValue = values[0];
+            for (int i = 1; i < values.Length; i++)
             {
-                Console.WriteLine("{0} is greater", second);
-                return second;
+                if (values[i].CompareTo(maxValue) > 0)
+                {
+                    maxValue = values[i];
+                }
+            }
+            return maxValue;
+        }
+
+        public void TestMaximum()
+        {
+            T maxValue = FindMax(values);
+            if (maxValue == null)
+            {
+                Console.WriteLine("The array is empty. Cannot find maximum.");
             }
             else
             {
-                Console.WriteLine("{0} is greater", third);
-                return third;
+                Console.WriteLine("MaxValue is: " + maxValue);
             }
-        }
-        public void TestMaximum()
-        {
-            T maxValue=FindMax(first, second, third);
-            Console.WriteLine("MaxValue is:" + maxValue);
         }
     }
 }
