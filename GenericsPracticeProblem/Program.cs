@@ -13,7 +13,7 @@
 
             Console.WriteLine("Welcome to GenericsPracticeProblem");
             Console.WriteLine("Please choose any one program from below options.");
-            Console.WriteLine("\n.1.IntegerFindMaxValue\n.2.FloatFindMaxValue\n.3.StringFindMaxValue ");
+            Console.WriteLine("\n.1.IntegerFindMaxValue\n.2.FloatFindMaxValue\n.3.StringFindMaxValue\n.4.FindMaxValueUsingGenerics");
             Console.WriteLine(" ");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -31,6 +31,15 @@
                     FindMaxValue.FindMax(str1, str2, str3);
                     break; 
                 case 4:
+                    FindMaxValueUsingGenerics<int> intObj=new FindMaxValueUsingGenerics<int>(x,y,z);
+                    intObj.TestMaximum();
+                    Console.WriteLine(" ");
+                    FindMaxValueUsingGenerics<float> floatObj=new FindMaxValueUsingGenerics<float>(a,b,c);
+                    floatObj.TestMaximum();
+                    Console.WriteLine(" ");
+                    FindMaxValueUsingGenerics<string> stringObj=new FindMaxValueUsingGenerics<string>(str1,str2,str3);
+                    stringObj.TestMaximum();
+                    break;
                    
 
                 default:
